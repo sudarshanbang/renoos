@@ -290,26 +290,27 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
           {/* Interactive Beacons on Front Desk Photo */}
           <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center">
             {/* Beside Maya (Left side): Interactive Concierge Beacon */}
-            <div className="absolute top-[54%] left-[40%] sm:left-[41%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+            <div className="absolute top-[52%] sm:top-[54%] left-[32%] sm:left-[41%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
               <button
                 type="button"
                 onClick={() => openMayaConcierge('greeting')}
                 className="group flex flex-col items-center gap-1 cursor-pointer transition-all transform hover:scale-105"
+                aria-label="Meet Maya Concierge"
               >
-                <span className="relative flex items-center justify-center w-9 h-9 rounded-full bg-black/80 border border-amber-300/80 shadow-2xl backdrop-blur-md group-hover:bg-[#1a2d21]">
+                <span className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 border border-amber-300/80 shadow-2xl backdrop-blur-md group-hover:bg-[#1a2d21]">
                   <span className="absolute -inset-1.5 rounded-full bg-amber-400/30 animate-pulse" />
                   <span className="absolute -inset-2 rounded-full bg-emerald-400/20 animate-ping opacity-50" />
-                  <User className="w-4 h-4 text-amber-200" />
+                  <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-200" />
                 </span>
-                <span className="px-3 py-1 rounded-full bg-[#142319]/90 border border-amber-300/60 text-[10px] font-mono uppercase tracking-wider text-cream font-medium shadow-md flex items-center gap-1.5 group-hover:bg-black/95">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  माया · कॉन्सिएर्ज (मराठी)
+                <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#142319]/90 border border-amber-300/60 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-cream font-medium shadow-md flex items-center gap-1 group-hover:bg-black/95 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span>माया · Concierge</span>
                 </span>
               </button>
             </div>
 
             {/* Beside Maya (Right side): Book a Room Beacon */}
-            <div className="absolute top-[54%] left-[60%] sm:left-[59%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+            <div className="absolute top-[52%] sm:top-[54%] left-[68%] sm:left-[59%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
               <button
                 type="button"
                 onClick={() => {
@@ -317,13 +318,14 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                   setViewState('dates')
                 }}
                 className="group flex flex-col items-center gap-1 cursor-pointer transition-all transform hover:scale-105"
+                aria-label="Book a Room"
               >
-                <span className="relative flex items-center justify-center w-9 h-9 rounded-full bg-black/80 border border-white/40 shadow-2xl backdrop-blur-md group-hover:border-emerald-300 group-hover:bg-[#1a2d21]">
+                <span className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 border border-white/40 shadow-2xl backdrop-blur-md group-hover:border-emerald-300 group-hover:bg-[#1a2d21]">
                   <span className="absolute -inset-1.5 rounded-full bg-emerald-400/25 animate-pulse" />
-                  <Calendar className="w-4 h-4 text-emerald-300" />
+                  <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300" />
                 </span>
-                <span className="px-3.5 py-1 rounded-full bg-black/80 border border-white/30 text-[10px] font-mono uppercase tracking-wider text-cream font-medium shadow-md group-hover:border-emerald-300 group-hover:bg-black/95">
-                  Book a Room · रूम बुक करा
+                <span className="px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-black/80 border border-white/30 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-cream font-medium shadow-md group-hover:border-emerald-300 group-hover:bg-black/95 whitespace-nowrap">
+                  Book Suite · आरक्षण
                 </span>
               </button>
             </div>
@@ -350,7 +352,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
             onNavigateSpace={() => setViewState('dates')}
             hideHotspotList={true}
             hideInternalHeader={true}
-            bottomBarOffsetClass="bottom-16 sm:bottom-20"
+            bottomBarOffsetClass="bottom-14 sm:bottom-20"
             viewportHeightClass="h-full w-full"
             className="h-full w-full"
           />
@@ -360,12 +362,12 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
       {/* =========================================================================
           2. TOP NAVIGATION HUD (Minimal & Editorial)
           ========================================================================= */}
-      <header className="relative z-30 h-16 px-4 sm:px-6 flex items-center justify-between border-b border-cream/15 bg-[#16251C]/60 backdrop-blur-md">
-        <div className="flex items-center gap-3">
+      <header className="relative z-30 min-h-14 sm:h-16 px-3 sm:px-6 py-2 flex items-center justify-between border-b border-cream/15 bg-[#16251C]/75 backdrop-blur-md pt-safe">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={onBackToExterior}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream/10 hover:bg-cream/20 text-cream text-xs font-mono transition-all border border-cream/15"
+            className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-cream/10 hover:bg-cream/20 text-cream text-[11px] sm:text-xs font-mono transition-all border border-cream/15 cursor-pointer shrink-0"
           >
             <ArrowLeft className="w-3.5 h-3.5 text-cream" />
             <span className="hidden sm:inline">Hotel Exterior</span>
@@ -374,42 +376,46 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
 
           <div className="h-4 w-px bg-cream/20 hidden sm:block" />
 
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-serif text-sm sm:text-base font-medium text-cream">
-              Grand Lobby & Reception Desk
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="font-serif text-xs sm:text-base font-medium text-cream truncate max-w-[130px] xs:max-w-none">
+              Grand Lobby
+            </span>
+            <span className="font-serif text-xs sm:text-base font-medium text-cream/70 hidden md:inline">
+              & Reception Desk
             </span>
           </div>
         </div>
 
         {/* View Mode Toggle: Front Desk Photo vs 360° Lobby Tour & Guest Account */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           <GuestAccountButton variant="dark" />
 
-          <div className="flex items-center p-1 bg-[#16251C]/75 backdrop-blur-md rounded-full border border-cream/20 text-xs font-mono">
+          <div className="flex items-center p-0.5 sm:p-1 bg-[#16251C]/80 backdrop-blur-md rounded-full border border-cream/20 text-[11px] sm:text-xs font-mono">
             <button
               type="button"
               onClick={() => setReceptionMode('desk-photo')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all ${
+              className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer ${
                 receptionMode === 'desk-photo'
                   ? 'bg-cream text-[#16251C] font-semibold shadow-sm'
                   : 'text-cream/70 hover:text-white'
               }`}
             >
-              <Camera className="w-3.5 h-3.5" />
-              <span>Front Desk</span>
+              <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span className="hidden xs:inline">Desk</span>
+              <span className="xs:hidden">Desk</span>
             </button>
             <button
               type="button"
               onClick={() => setReceptionMode('360-lobby')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all ${
+              className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer ${
                 receptionMode === '360-lobby'
                   ? 'bg-cream text-[#16251C] font-semibold shadow-sm'
                   : 'text-cream/70 hover:text-white'
               }`}
             >
-              <Compass className="w-3.5 h-3.5" />
-              <span>360° Lobby</span>
+              <Compass className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>360°</span>
             </button>
           </div>
         </div>
@@ -420,9 +426,9 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
           Placed gracefully to the right side of the counter (matching reference image)
           Soft blur, thin border, translucent cream/forest glass, minimal editorial content.
           ========================================================================= */}
-      <div className="relative z-20 flex-1 flex items-center justify-center md:justify-end px-4 sm:px-8 md:pr-16 pointer-events-none">
+      <div className="relative z-20 flex-1 flex items-center justify-center md:justify-end px-3 sm:px-8 md:pr-16 pointer-events-none py-2">
         {viewState === 'greeting' && (
-          <div className="pointer-events-auto max-w-sm sm:max-w-md w-full bg-[#18261E]/70 backdrop-blur-xl border border-amber-200/30 shadow-2xl rounded-3xl p-6 sm:p-8 space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-500 text-cream">
+          <div className="pointer-events-auto max-w-sm sm:max-w-md w-full max-h-[82dvh] overflow-y-auto no-scrollbar bg-[#18261E]/85 backdrop-blur-xl border border-amber-200/30 shadow-2xl rounded-3xl p-5 sm:p-8 space-y-4 sm:space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-500 text-cream">
             {/* Golden Lotus Emblem */}
             <div className="flex flex-col items-center text-center space-y-1">
               <div className="w-10 h-10 rounded-full border border-amber-300/40 bg-amber-400/10 flex items-center justify-center text-amber-200 shadow-md">
@@ -505,30 +511,30 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
 
         {/* DATE SELECTION LAYER: Connected Visually in the Same Transparent Screen */}
         {viewState === 'dates' && (
-          <div className="pointer-events-auto max-w-sm sm:max-w-md w-full bg-[#18261E]/80 backdrop-blur-xl border border-amber-200/35 shadow-2xl rounded-3xl p-6 sm:p-7 space-y-4 animate-in fade-in zoom-in-95 duration-400 text-cream">
+          <div className="pointer-events-auto max-w-sm sm:max-w-md w-full max-h-[82dvh] overflow-y-auto no-scrollbar bg-[#18261E]/85 backdrop-blur-xl border border-amber-200/35 shadow-2xl rounded-3xl p-5 sm:p-7 space-y-3.5 sm:space-y-4 animate-in fade-in zoom-in-95 duration-400 text-cream">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-cream/15 pb-3">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-300 font-semibold block">
                   Reservation Dates
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl text-cream font-medium">
+                <h3 className="font-serif text-base sm:text-xl text-cream font-medium">
                   Select Check-in & Check-out
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setViewState('greeting')}
-                className="text-xs font-mono text-cream/70 hover:text-cream px-2.5 py-1 rounded-full bg-cream/10 border border-cream/15"
+                className="text-xs font-mono text-cream/70 hover:text-cream px-2.5 py-1 rounded-full bg-cream/10 border border-cream/15 cursor-pointer"
               >
                 ← Back
               </button>
             </div>
 
             {/* Date Pickers Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1">
               {/* Check-In */}
-              <div className="space-y-1.5 p-3 rounded-2xl bg-[#0f1b13]/70 border border-cream/15">
+              <div className="space-y-1 p-2.5 sm:p-3 rounded-2xl bg-[#0f1b13]/70 border border-cream/15">
                 <label className="text-[10px] font-mono text-cream/60 uppercase tracking-wider block">
                   Check-in Date
                 </label>
@@ -545,7 +551,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
               </div>
 
               {/* Check-Out */}
-              <div className="space-y-1.5 p-3 rounded-2xl bg-[#0f1b13]/70 border border-cream/15">
+              <div className="space-y-1 p-2.5 sm:p-3 rounded-2xl bg-[#0f1b13]/70 border border-cream/15">
                 <label className="text-[10px] font-mono text-cream/60 uppercase tracking-wider block">
                   Check-out Date
                 </label>
@@ -570,7 +576,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
             )}
 
             {/* Guests Selector */}
-            <div className="p-3 rounded-2xl bg-[#0f1b13]/70 border border-cream/15 space-y-2.5">
+            <div className="p-2.5 sm:p-3 rounded-2xl bg-[#0f1b13]/70 border border-cream/15 space-y-2 sm:space-y-2.5">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-[10px] font-mono text-cream/60 uppercase tracking-wider block">
@@ -584,7 +590,8 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                   <button
                     type="button"
                     onClick={() => setAdults(Math.max(1, adults - 1))}
-                    className="w-7 h-7 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25"
+                    className="w-8 h-8 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25 cursor-pointer"
+                    aria-label="Decrease adults"
                   >
                     -
                   </button>
@@ -592,7 +599,8 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                   <button
                     type="button"
                     onClick={() => setAdults(Math.min(4, adults + 1))}
-                    className="w-7 h-7 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25"
+                    className="w-8 h-8 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25 cursor-pointer"
+                    aria-label="Increase adults"
                   >
                     +
                   </button>
@@ -611,7 +619,8 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                   <button
                     type="button"
                     onClick={() => setChildren(Math.max(0, children - 1))}
-                    className="w-7 h-7 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25"
+                    className="w-8 h-8 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25 cursor-pointer"
+                    aria-label="Decrease children"
                   >
                     -
                   </button>
@@ -619,7 +628,8 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                   <button
                     type="button"
                     onClick={() => setChildren(Math.min(3, children + 1))}
-                    className="w-7 h-7 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25"
+                    className="w-8 h-8 rounded-full bg-cream/15 text-cream flex items-center justify-center text-xs font-mono hover:bg-cream/25 cursor-pointer"
+                    aria-label="Increase children"
                   >
                     +
                   </button>
@@ -640,7 +650,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
               type="button"
               disabled={nights <= 0}
               onClick={() => handleContinue()}
-              className={`w-full py-3.5 px-6 rounded-2xl text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 shadow-xl transition-all duration-300 ${
+              className={`w-full py-3 sm:py-3.5 px-5 sm:px-6 rounded-2xl text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 shadow-xl transition-all duration-300 ${
                 nights > 0
                   ? 'bg-cream hover:bg-white text-[#16251C] cursor-pointer transform hover:scale-[1.01]'
                   : 'bg-cream/30 text-cream/50 cursor-not-allowed'
@@ -658,13 +668,13 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
           Opens when user clicks on Receptionist Maya in 360° tour or photo
           ========================================================================= */}
       {isMayaOpen && (
-        <div className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="pointer-events-auto max-w-lg w-full bg-[#15251B]/95 backdrop-blur-2xl border border-amber-300/40 rounded-3xl p-5 sm:p-7 shadow-2xl space-y-4 text-cream">
+        <div className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center p-3 sm:p-6 bg-black/50 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="pointer-events-auto max-w-lg w-full max-h-[88dvh] overflow-y-auto no-scrollbar bg-[#15251B]/95 backdrop-blur-2xl border border-amber-300/40 rounded-3xl p-4 sm:p-7 shadow-2xl space-y-3.5 sm:space-y-4 text-cream">
             {/* Header with Maya's Profile, Status, and Controls */}
-            <div className="flex items-start justify-between border-b border-cream/15 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="w-12 h-12 rounded-full border-2 border-amber-300/60 overflow-hidden bg-black shadow-lg">
+            <div className="flex items-start justify-between border-b border-cream/15 pb-3 sm:pb-4">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="relative shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-amber-300/60 overflow-hidden bg-black shadow-lg">
                     <img
                       src="/images/receptionist-desk.jpg"
                       alt="Maya - Front Desk Concierge"
@@ -674,79 +684,82 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                       }}
                     />
                     <div className="w-full h-full flex items-center justify-center bg-[#1E3325]">
-                      <User className="w-6 h-6 text-amber-200" />
+                      <User className="w-5 h-5 sm:w-6 sm:h-6 text-amber-200" />
                     </div>
                   </div>
-                  <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#15251B] animate-pulse" />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-emerald-400 border-2 border-[#15251B] animate-pulse" />
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-serif text-lg sm:text-xl text-cream font-medium">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <h3 className="font-serif text-base sm:text-xl text-cream font-medium">
                       माया शर्मा · Maya
                     </h3>
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[9px] font-mono uppercase tracking-wider">
-                      लेडीज कॉन्सिएर्ज (मराठी)
+                    <span className="px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[8px] sm:text-[9px] font-mono uppercase tracking-wider">
+                      कॉन्सिएर्ज (मराठी)
                     </span>
                   </div>
-                  <p className="text-xs text-cream/70 font-light font-mono">
-                    अतिथी सत्कार व आरक्षण · Front Desk Concierge
+                  <p className="text-[11px] sm:text-xs text-cream/70 font-light font-mono">
+                    अतिथी सत्कार · Front Desk
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
                 {/* Bell Chime Trigger */}
                 <button
                   type="button"
                   onClick={ringReceptionBell}
-                  className={`p-2 rounded-full border transition-all cursor-pointer ${
+                  className={`p-1.5 sm:p-2 rounded-full border transition-all cursor-pointer ${
                     bellRung
                       ? 'bg-amber-400 text-black border-amber-400 scale-110 shadow-lg'
                       : 'bg-cream/10 hover:bg-cream/20 text-amber-200 border-cream/20'
                   }`}
                   title="Ring Reception Bell"
+                  aria-label="Ring Reception Bell"
                 >
-                  <Bell className={`w-4 h-4 ${bellRung ? 'animate-bounce' : ''}`} />
+                  <Bell className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${bellRung ? 'animate-bounce' : ''}`} />
                 </button>
 
                 {/* Voice Greeting Trigger */}
                 <button
                   type="button"
                   onClick={() => speakGreeting()}
-                  className={`p-2 rounded-full border transition-all cursor-pointer ${
+                  className={`p-1.5 sm:p-2 rounded-full border transition-all cursor-pointer ${
                     isSpeaking
                       ? 'bg-emerald-500/30 text-emerald-200 border-emerald-400 animate-pulse'
                       : 'bg-cream/10 hover:bg-cream/20 text-cream border-cream/20'
                   }`}
                   title="Speak Voice Greeting in Marathi"
+                  aria-label="Speak Voice Greeting"
                 >
-                  <Volume2 className="w-4 h-4" />
+                  <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
 
                 {/* Close Dialog */}
                 <button
                   type="button"
                   onClick={closeMayaConcierge}
-                  className="p-2 rounded-full bg-cream/10 hover:bg-cream/20 text-cream/70 hover:text-white border border-cream/20 transition-all cursor-pointer"
+                  className="p-1.5 sm:p-2 rounded-full bg-cream/10 hover:bg-cream/20 text-cream/70 hover:text-white border border-cream/20 transition-all cursor-pointer"
                   title="Close"
+                  aria-label="Close Concierge"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
               </div>
             </div>
 
             {/* Maya's Interactive Dialogue Bubble in Marathi */}
-            <div className="p-4 rounded-2xl bg-[#0f1b13]/80 border border-cream/15 space-y-2">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0f1b13]/80 border border-cream/15 space-y-2">
               <div className="flex items-center justify-between text-[10px] font-mono text-amber-200/90 uppercase tracking-widest">
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-ping" />
                   माया बोलत आहेत · Maya Speaking (मराठी)
                 </span>
-                {isSpeaking && <span className="text-emerald-300 animate-pulse">🔊 आवाज चालू आहे...</span>}
+                {isSpeaking && <span className="text-emerald-300 animate-pulse">🔊 आवाज चालू...</span>}
               </div>
 
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <p className="text-xs sm:text-sm text-cream font-normal leading-relaxed">
                   {mayaTopic === 'greeting' &&
                     '“नमस्कार! रेणूस हॉटेलमध्ये आपले सहर्ष स्वागत आहे. मी माया, आपली लेडीज कॉन्सिएर्ज. आपल्या सुखावह आणि आनंदी मुक्कामासाठी मी कशी मदत करू शकेन?”'}
@@ -759,7 +772,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                   {mayaTopic === 'bell' &&
                     '“टन-टन! मी लगेच आपल्या सेवेसाठी तत्पर आहे! आपल्याला रूम निवडण्यात किंवा आरक्षणात काही मदत हवी आहे का?”'}
                 </p>
-                <p className="text-[11px] text-cream/60 font-light italic leading-normal">
+                <p className="text-[10px] sm:text-[11px] text-cream/60 font-light italic leading-normal">
                   {mayaTopic === 'greeting' &&
                     '“Namaste! Warm welcome to Renoos Hotel. I am Maya, your front desk lady concierge. How may I assist your pleasant stay?”'}
                   {mayaTopic === 'recommend' &&
@@ -780,7 +793,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                 कॉन्सिएर्ज पर्याय · Concierge Options
               </span>
 
-              <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
                 {/* Option 1: Book Room */}
                 <button
                   type="button"
@@ -788,7 +801,7 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                     closeMayaConcierge()
                     setViewState('dates')
                   }}
-                  className="p-2.5 rounded-xl bg-cream hover:bg-white text-[#16251C] font-semibold flex items-center justify-center gap-2 shadow-md transition-all transform hover:scale-[1.02] cursor-pointer col-span-2"
+                  className="p-2.5 rounded-xl bg-cream hover:bg-white text-[#16251C] font-semibold flex items-center justify-center gap-2 shadow-md transition-all transform hover:scale-[1.02] cursor-pointer sm:col-span-2"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#16251C]" />
                   <span>तारखा निवडून रूम बुक करा · Book Room</span>
@@ -799,13 +812,13 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                 <button
                   type="button"
                   onClick={() => openMayaConcierge('recommend')}
-                  className={`p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
+                  className={`p-2 sm:p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
                     mayaTopic === 'recommend'
                       ? 'bg-amber-400/20 border-amber-300 text-amber-100'
                       : 'bg-white/5 hover:bg-white/10 border-cream/15 text-cream/90'
                   }`}
                 >
-                  <Bed className="w-3.5 h-3.5 text-amber-200" />
+                  <Bed className="w-3.5 h-3.5 text-amber-200 shrink-0" />
                   <span className="truncate">खोल्यांची माहिती · Suites</span>
                 </button>
 
@@ -813,13 +826,13 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                 <button
                   type="button"
                   onClick={() => openMayaConcierge('bell')}
-                  className={`p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
+                  className={`p-2 sm:p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
                     mayaTopic === 'bell'
                       ? 'bg-amber-400/20 border-amber-300 text-amber-100'
                       : 'bg-white/5 hover:bg-white/10 border-cream/15 text-cream/90'
                   }`}
                 >
-                  <Bell className="w-3.5 h-3.5 text-amber-300" />
+                  <Bell className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                   <span className="truncate">घंटा वाजवा · Ring Bell</span>
                 </button>
 
@@ -827,13 +840,13 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                 <button
                   type="button"
                   onClick={() => openMayaConcierge('dining')}
-                  className={`p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
+                  className={`p-2 sm:p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
                     mayaTopic === 'dining'
                       ? 'bg-amber-400/20 border-amber-300 text-amber-100'
                       : 'bg-white/5 hover:bg-white/10 border-cream/15 text-cream/90'
                   }`}
                 >
-                  <Coffee className="w-3.5 h-3.5 text-amber-200" />
+                  <Coffee className="w-3.5 h-3.5 text-amber-200 shrink-0" />
                   <span className="truncate">भोजन आणि चहा · Dining</span>
                 </button>
 
@@ -841,31 +854,31 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
                 <button
                   type="button"
                   onClick={() => openMayaConcierge('policies')}
-                  className={`p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
+                  className={`p-2 sm:p-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
                     mayaTopic === 'policies'
                       ? 'bg-amber-400/20 border-amber-300 text-amber-100'
                       : 'bg-white/5 hover:bg-white/10 border-cream/15 text-cream/90'
                   }`}
                 >
-                  <Clock className="w-3.5 h-3.5 text-amber-200" />
+                  <Clock className="w-3.5 h-3.5 text-amber-200 shrink-0" />
                   <span className="truncate">चेक-इन व वेळा · Timings</span>
                 </button>
               </div>
 
               {/* Direct Suite Preview Buttons when Recommended */}
               {mayaTopic === 'recommend' && (
-                <div className="pt-2 flex items-center gap-2 overflow-x-auto">
+                <div className="pt-2 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
                   <button
                     type="button"
                     onClick={() => handleContinue()}
-                    className="px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-[11px] font-mono text-emerald-200 hover:bg-emerald-500/30 whitespace-nowrap cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-[11px] font-mono text-emerald-200 hover:bg-emerald-500/30 whitespace-nowrap cursor-pointer shrink-0"
                   >
                     रूम २०१ (गार्डन व्ह्यू) पहा →
                   </button>
                   <button
                     type="button"
                     onClick={() => handleContinue()}
-                    className="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-400/40 text-[11px] font-mono text-amber-200 hover:bg-amber-500/30 whitespace-nowrap cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-400/40 text-[11px] font-mono text-amber-200 hover:bg-amber-500/30 whitespace-nowrap cursor-pointer shrink-0"
                   >
                     रूम २०३ (व्हॅली व्ह्यू) पहा →
                   </button>
@@ -878,24 +891,24 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
 
       {/* Floating Re-Open Pill when User Minimized to Free Explore */}
       {viewState === 'free-explore' && !isMayaOpen && (
-        <div className="relative z-20 p-4 sm:p-6 flex flex-wrap items-center justify-center gap-3 pointer-events-none">
+        <div className="relative z-20 p-3 sm:p-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 pointer-events-none">
           <button
             type="button"
             onClick={() => openMayaConcierge('greeting')}
-            className="pointer-events-auto px-4 py-2.5 rounded-full bg-[#18261E]/90 hover:bg-[#18261E] text-cream text-xs font-mono border border-amber-300/40 flex items-center gap-2 shadow-2xl transition-all transform hover:scale-105 cursor-pointer"
+            className="pointer-events-auto px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#18261E]/90 hover:bg-[#18261E] text-cream text-[11px] sm:text-xs font-mono border border-amber-300/40 flex items-center gap-2 shadow-2xl transition-all transform hover:scale-105 cursor-pointer"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <User className="w-3.5 h-3.5 text-amber-200" />
-            <span>माया यांच्याशी बोला · Concierge (मराठी)</span>
+            <span>माया · Concierge (मराठी)</span>
           </button>
 
           <button
             type="button"
             onClick={() => setViewState('dates')}
-            className="pointer-events-auto px-5 py-2.5 rounded-full bg-cream hover:bg-white text-[#16251C] text-xs font-mono font-semibold flex items-center gap-2 shadow-2xl transition-all transform hover:scale-105 cursor-pointer"
+            className="pointer-events-auto px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-cream hover:bg-white text-[#16251C] text-[11px] sm:text-xs font-mono font-semibold flex items-center gap-2 shadow-2xl transition-all transform hover:scale-105 cursor-pointer"
           >
             <Calendar className="w-3.5 h-3.5 text-[#16251C]" />
-            <span>तारखा निवडून रूम बुक करा · Book Room</span>
+            <span>तारखा निवडून रूम बुक करा · Book</span>
             <ArrowRight className="w-3 h-3 text-[#16251C]" />
           </button>
         </div>
@@ -904,22 +917,23 @@ export const ReceptionScene: React.FC<ReceptionSceneProps> = ({
       {/* =========================================================================
           4. BOTTOM STATUS FOOTER
           ========================================================================= */}
-      <footer className="relative z-30 h-12 px-4 sm:px-6 flex items-center justify-between border-t border-cream/15 bg-[#16251C]/60 backdrop-blur-md text-xs font-mono text-cream/70">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>
+      <footer className="relative z-30 h-10 sm:h-12 px-3 sm:px-6 flex items-center justify-between border-t border-cream/15 bg-[#16251C]/75 backdrop-blur-md text-[11px] sm:text-xs font-mono text-cream/70 pb-safe">
+        <div className="flex items-center gap-2 truncate pr-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          <span className="truncate">
             {receptionMode === 'desk-photo'
-              ? 'Front Desk Presentation Active (Renoos Hotel)'
-              : '360° Grand Lobby Tour Active · Drag to look around'}
+              ? 'Front Desk · Renoos Hotel'
+              : '360° Grand Lobby'}
+            <span className="hidden sm:inline"> · Drag to look around</span>
           </span>
         </div>
 
         <button
           type="button"
           onClick={onBackToExterior}
-          className="text-amber-200 hover:text-white underline font-medium"
+          className="text-amber-200 hover:text-white underline font-medium shrink-0 cursor-pointer text-xs"
         >
-          ← Hotel Exterior
+          ← <span className="hidden xs:inline">Hotel </span>Exterior
         </button>
       </footer>
     </div>

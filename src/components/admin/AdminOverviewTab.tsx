@@ -286,7 +286,67 @@ export const AdminOverviewTab: React.FC<AdminOverviewTabProps> = ({
               No reservations recorded yet in PMS.
             </div>
           ) : (
-            <div className="overflow-x-auto">
+          <>
+            {/* Mobile Cards (<md) */}
+            <div className="md:hidden divide-y divide-cream/10">
+              {recentBookings.slice(0, 6).map((booking) => {
+                const isCancelled = booking.status === 'cancelled'
+                const isCheckedIn = booking.status === 'checked_in'
+
+                return (
+                  <div
+                    key={booking.id}
+                    className="p-4 space-y-2.5 hover:bg-cream/5 transition-colors cursor-pointer"
+                    onClick={() => onSelectBooking(booking)}
+                  >
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-amber-200">
+                        {booking.bookingReference}
+                      </span>
+                      <span
+                        className={`px-2 py-0.5 rounded-full text-[10px] uppercase font-bold border ${
+                          isCancelled
+                            ? 'bg-red-500/20 text-red-200 border-red-500/40'
+                            : isCheckedIn
+                            ? 'bg-blue-500/20 text-blue-200 border-blue-400/40'
+                            : 'bg-emerald-500/20 text-emerald-300 border-emerald-400/40'
+                        }`}
+                      >
+                        {booking.status}
+                      </span>
+                    </div>
+
+                    <div className="flex items-start justify-between text-xs">
+                      <div>
+                        <div className="font-sans font-medium text-cream">
+                          {booking.guestDetails?.fullName || 'Guest'}
+                        </div>
+                        <div className="text-[10px] text-cream/50">
+                          +91 {booking.guestDetails?.phone}
+                        </div>
+                      </div>
+
+                      <div className="text-right">
+                        <div className="font-bold text-cream">
+                          {formatCurrency(booking.totalAmount)}
+                        </div>
+                        <div className="text-[10px] text-amber-200/80">
+                          Room {booking.roomNumber}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-[11px] text-cream/70 flex items-center justify-between pt-1 border-t border-cream/5">
+                      <span>{booking.checkInDate} → {booking.checkOutDate}</span>
+                      <span className="text-[10px] text-cream/50">{booking.nights}N</span>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Desktop Table (md+) */}
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-left text-xs font-mono">
                 <thead className="bg-black/30 border-b border-cream/15 text-[10px] uppercase tracking-wider text-cream/70">
                   <tr>
@@ -361,6 +421,7 @@ export const AdminOverviewTab: React.FC<AdminOverviewTabProps> = ({
                 </tbody>
               </table>
             </div>
+          </>
           )}
         </div>
       </div>
